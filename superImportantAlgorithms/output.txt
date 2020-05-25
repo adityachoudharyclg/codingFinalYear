@@ -1,0 +1,6 @@
+Sum is:9
+Actual subarray is:1 2 3 -2 5 
+Sum is:-1
+Actual subarray is:-1 
+Sum is:7
+Actual subarray is:4 -1 -2 1 5 
