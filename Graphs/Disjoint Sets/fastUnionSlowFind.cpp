@@ -22,7 +22,7 @@ void set_union(int* sets, int x, int y) {
     int root2 = set_find(sets, y);
     
     if (root1 != root2) {
-        sets[root2] = root1;
+        sets[root1] = root2;
     }
 }
 int main() {

@@ -25,8 +25,10 @@ void set_union(int* sets, int x, int y) {
         sets[root1] = root2;
     } else if (sets[root1] == sets[root2]) {
         sets[root1] -= 1;
-    } 
-    sets[root2] = root1;
+        sets[root2] = root1;
+    } else {
+        sets[root2] = root1;
+    }
 }
 int main() {
     freopen("input.txt", "r", stdin);
