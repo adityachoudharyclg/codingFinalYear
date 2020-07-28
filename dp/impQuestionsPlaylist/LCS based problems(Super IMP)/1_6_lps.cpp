@@ -2,18 +2,23 @@
 #define ll long long
 #define mod 1000000007
 using namespace std;
-int solve(string a, string b, int m, int n) {
-    int dp[m + 1][n + 1];
+int solve(string a, int n) {
+    int dp[n + 1][n + 1];
     memset(dp, 0, sizeof(dp));
-    for (int i = 1; i <= m; i++) {
+    string b = a;
+    reverse(b.begin(), b.end());
+    // cout << a << endl;
+    // cout << b << endl;
+    for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
-            if (a[i - 1] == b[j - 1])
+            if (a[i - 1] == b[j - 1]) {
                 dp[i][j] = 1 + dp[i - 1][j - 1];
-            else
+            } else {
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+            }
         }
     }
-    return dp[m][n];
+    return dp[n][n];
 }
 int main() {
     freopen("input.txt", "r", stdin);
@@ -21,11 +26,9 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        int m, n;
-        cin >> m >> n;
-        string a, b;
-        cin >> a >> b;
-        cout << solve(a, b, m, n) << endl;
+        string a;
+        cin >> a;
+        cout << solve(a, a.size()) << endl;
     }
     return 0;
 }
